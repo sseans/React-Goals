@@ -6,6 +6,7 @@ export default function PlannerList() {
   const [goals, setGoals] = useState([{ id: 1, name: "bang" }]);
   const [editState, setEditState] = useState(false);
   const [input, setInput] = useState("");
+  const [focusPoint, setFocusPoint] = useState(false);
 
   function handleChange(e) {
     setInput(e.target.value);
@@ -65,12 +66,17 @@ export default function PlannerList() {
     localStorage.setItem("goalsArray", JSON.stringify(mappedGoals));
     setEditState(!editState);
     setInput("");
+    setFocusPoint(!focusPoint);
   }
 
   return (
     <div className="planner-list">
       <h1>Set A Goal Today!</h1>
-      <PlannerForm onSubmit={addGoal} removeAllGoals={removeAllGoals} />
+      <PlannerForm
+        onSubmit={addGoal}
+        focusPoint={focusPoint}
+        removeAllGoals={removeAllGoals}
+      />
       {goals.map((goal) => {
         return (
           <Goal

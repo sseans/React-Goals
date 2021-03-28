@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 
 export default function PlannerForm(props) {
   const [input, setInput] = useState("");
+  const inputElement = useRef();
+
+  useEffect(() => {
+    if (inputElement.current) {
+      inputElement.current.focus();
+    }
+  }, [props.focusPoint]);
 
   function handleChange(e) {
     setInput(e.target.value);
@@ -29,6 +36,8 @@ export default function PlannerForm(props) {
         value={input}
         className="planner-input"
         onChange={handleChange}
+        autoFocus
+        ref={inputElement}
       />
       <button className="planner-button">Add+</button>
       <RiDeleteBack2Fill onClick={removeButton} />
