@@ -4,6 +4,12 @@ import PlannerForm from "./PlannerForm";
 
 export default function PlannerList() {
   const [goals, setGoals] = useState([{ id: 1, name: "bang" }]);
+  const [editState, setEditState] = useState(false);
+  const [input, setInput] = useState("");
+
+  function handleChange(e) {
+    setInput(e.target.value);
+  }
 
   useEffect(() => {
     if (localStorage.getItem("goalsArray") === null) {
@@ -30,13 +36,60 @@ export default function PlannerList() {
     setGoals(newArr);
   }
 
+  function removeAllGoals() {
+    setGoals([]);
+    localStorage.setItem("goalsArray", JSON.stringify([]));
+  }
+
+  function editGoal(id) {
+    setEditState(!editState);
+    let newArr = goals.map((x) => {
+      if (x.id === id) {
+        setGoals([x]);
+      }
+    });
+  }
+
+  function turnOffEditMode(e) {
+    e.preventDefault();
+    let editedGoalID = goals[0].id;
+    let loadGoals = [...JSON.parse(localStorage.getItem("goalsArray"))];
+    let mappedGoals = loadGoals.map((x) => {
+      if (x.id === editedGoalID) {
+        x.name = input;
+      }
+      return x;
+    });
+    setGoals(mappedGoals);
+    localStorage.setItem("goalsArray", JSON.stringify(mappedGoals));
+    setEditState(!editState);
+  }
+
   return (
     <div className="planner-list">
       <h1>Set A Goal Today!</h1>
-      <PlannerForm onSubmit={addGoal} />
+      <PlannerForm onSubmit={addGoal} removeAllGoals={removeAllGoals} />
       {goals.map((goal) => {
-        return <Goal goal={goal} removeGoal={removeGoal} key={goal.id} />;
+        return (
+          <Goal
+            goal={goal}
+            removeGoal={removeGoal}
+            editGoal={editGoal}
+            key={goal.id}
+          />
+        );
       })}
+      {editState === true ? (
+        <form onSubmit={turnOffEditMode}>
+          <input
+            type="text"
+            placeholder="Add a goal"
+            value={input}
+            className="edit-input"
+            onChange={handleChange}
+          />
+        </form>
+      ) : null}
     </div>
   );
 }

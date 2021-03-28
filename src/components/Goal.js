@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { ImCheckboxUnchecked } from "react-icons/im";
 import { ImCheckboxChecked } from "react-icons/im";
+import { FaEdit } from "react-icons/fa";
 
-export default function Goal({ goal, removeGoal }) {
+export default function Goal({ goal, removeGoal, editGoal }) {
   const [check, setCheck] = useState(false);
 
   function findID() {
@@ -12,6 +13,10 @@ export default function Goal({ goal, removeGoal }) {
 
   function toggleCheck() {
     setCheck(!check);
+  }
+
+  function edit() {
+    editGoal(goal.id);
   }
 
   return (
@@ -23,6 +28,7 @@ export default function Goal({ goal, removeGoal }) {
       ) : (
         <ImCheckboxChecked onClick={toggleCheck} />
       )}
+      <FaEdit onClick={edit} />
     </div>
   );
 }

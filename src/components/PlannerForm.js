@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { RiDeleteBack2Fill } from "react-icons/ri";
 
 export default function PlannerForm(props) {
   const [input, setInput] = useState("");
@@ -9,13 +10,15 @@ export default function PlannerForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       name: input,
     });
-
     setInput("");
+  }
+
+  function removeButton() {
+    props.removeAllGoals();
   }
 
   return (
@@ -27,7 +30,8 @@ export default function PlannerForm(props) {
         className="planner-input"
         onChange={handleChange}
       />
-      <button className="planner-button">Add +</button>
+      <button className="planner-button">Add+</button>
+      <RiDeleteBack2Fill onClick={removeButton} />
     </form>
   );
 }
