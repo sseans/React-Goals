@@ -46,6 +46,7 @@ export default function PlannerList() {
     let newArr = goals.map((x) => {
       if (x.id === id) {
         setGoals([x]);
+        setInput(x.name);
       }
     });
   }
@@ -63,6 +64,7 @@ export default function PlannerList() {
     setGoals(mappedGoals);
     localStorage.setItem("goalsArray", JSON.stringify(mappedGoals));
     setEditState(!editState);
+    setInput("");
   }
 
   return (
@@ -83,9 +85,11 @@ export default function PlannerList() {
         <form onSubmit={turnOffEditMode}>
           <input
             type="text"
+            autoFocus={true}
             placeholder="Add a goal"
             value={input}
             className="edit-input"
+            onFocus={(e) => e.currentTarget.select()}
             onChange={handleChange}
           />
         </form>
