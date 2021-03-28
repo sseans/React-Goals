@@ -1,5 +1,4 @@
 import "./App.css";
-import GoalPlanner from "./components/PlannerForm";
 import PlannerList from "./components/PlannerList";
 
 function App() {

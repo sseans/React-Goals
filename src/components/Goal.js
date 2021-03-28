@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
-import { FaCheckSquare } from "react-icons/fa";
+import { ImCheckboxUnchecked } from "react-icons/im";
+import { ImCheckboxChecked } from "react-icons/im";
 
-export default function Goal({ goal }) {
+export default function Goal({ goal, removeGoal }) {
+  const [check, setCheck] = useState(false);
+
+  function findID() {
+    removeGoal(goal.id);
+  }
+
+  function toggleCheck() {
+    setCheck(!check);
+  }
+
   return (
     <div className="planner-goal">
       <div className="goal-name">{goal.name}</div>
-      <AiFillDelete />
-      <FaCheckSquare />
+      <AiFillDelete onClick={findID} />
+      {check === false ? (
+        <ImCheckboxUnchecked onClick={toggleCheck} />
+      ) : (
+        <ImCheckboxChecked onClick={toggleCheck} />
+      )}
     </div>
   );
 }
