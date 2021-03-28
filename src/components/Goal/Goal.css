@@ -5,34 +5,45 @@
   width: 90%;
   max-width: 600px;
   margin-top: 5px;
-  border: ;
-  color: #ece7dc;
+  border: #fdc33c 1px solid;
+  border-radius: 5px;
+  color: #fdc33c;
+  height: 40px;
+  padding: 0 5px;
 }
 
 .goal-name {
   font-size: 1.25rem;
   padding-right: 5px;
+  flex: 80%;
+  color: #ece7dc;
+  font-weight: 700;
 }
 
 .rubbish {
   margin-right: 3px;
+  flex: 5%;
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
 .unchecked {
   margin-right: 5px;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   cursor: pointer;
+  flex: 5%;
 }
 
 .checked {
   margin-right: 5px;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   cursor: pointer;
+  flex: 5%;
 }
 
 .edit-button {
-  padding-bottom: -2px;
-  font-size: 1rem;
+  padding-bottom: 2px;
+  font-size: 1.3rem;
+  flex: 5%;
   cursor: pointer;
 }

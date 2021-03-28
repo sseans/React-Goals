@@ -48,7 +48,7 @@ export default function PlannerList() {
     goals.map((x) => {
       if (x.id === id) {
         setGoals([x]);
-        setInput(x.name);
+        setInput(`Edit '${x.name}'`);
       }
       return x;
     });
