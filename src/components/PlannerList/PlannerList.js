@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Goal from "./Goal";
-import PlannerForm from "./PlannerForm";
+import Goal from "../Goal/Goal";
+import PlannerForm from "../PlannerForm/PlannerForm";
+import "./PlannerList.css";
 
 export default function PlannerList() {
   const [goals, setGoals] = useState([{ id: 1, name: "bang" }]);

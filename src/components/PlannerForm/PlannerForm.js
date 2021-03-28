@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { RiDeleteBack2Fill } from "react-icons/ri";
+import "./PlannerForm.css";
 
 export default function PlannerForm(props) {
   const [input, setInput] = useState("");

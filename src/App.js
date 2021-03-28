@@ -1,5 +1,5 @@
 import "./App.css";
-import PlannerList from "./components/PlannerList";
+import PlannerList from "./components/PlannerList/PlannerList";
 
 function App() {
   return (

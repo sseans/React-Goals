@@ -3,6 +3,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { ImCheckboxUnchecked } from "react-icons/im";
 import { ImCheckboxChecked } from "react-icons/im";
 import { FaEdit } from "react-icons/fa";
+import "./Goal.css";
 
 export default function Goal({ goal, removeGoal, editGoal }) {
   const [check, setCheck] = useState(false);
@@ -22,13 +23,13 @@ export default function Goal({ goal, removeGoal, editGoal }) {
   return (
     <div className="planner-goal">
       <div className="goal-name">{goal.name}</div>
-      <AiFillDelete onClick={findID} />
+      <AiFillDelete className="rubbish" onClick={findID} />
       {check === false ? (
-        <ImCheckboxUnchecked onClick={toggleCheck} />
+        <ImCheckboxUnchecked className="unchecked" onClick={toggleCheck} />
       ) : (
-        <ImCheckboxChecked onClick={toggleCheck} />
+        <ImCheckboxChecked className="checked" onClick={toggleCheck} />
       )}
-      <FaEdit onClick={edit} />
+      <FaEdit className="edit-button" onClick={edit} />
     </div>
   );
 }
