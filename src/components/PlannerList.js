@@ -44,11 +44,12 @@ export default function PlannerList() {
 
   function editGoal(id) {
     setEditState(!editState);
-    let newArr = goals.map((x) => {
+    goals.map((x) => {
       if (x.id === id) {
         setGoals([x]);
         setInput(x.name);
       }
+      return x;
     });
   }
 
