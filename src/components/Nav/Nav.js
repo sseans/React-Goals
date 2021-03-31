@@ -23,12 +23,16 @@ export default function Nav() {
     <div className="nav">
       <ul className="navwrapper">
         {menuArr.map((x) => {
-          <a href={x.link}>
-            <li className="navbuttons">
-              {x.icon}
-              {x.name}
-            </li>
-          </a>;
+          return (
+            <a href={x.link} className="navlinks">
+              <li className="navbuttons">
+                <p>
+                  {x.icon}
+                  {x.name}
+                </p>
+              </li>
+            </a>
+          );
         })}
       </ul>
     </div>
