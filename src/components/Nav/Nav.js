@@ -1,20 +1,36 @@
 import React from "react";
 import "./Nav.css";
+import { MdAssignmentTurnedIn } from "react-icons/md";
+import { MdBookmark } from "react-icons/md";
+import { TiSocialTwitter } from "react-icons/ti";
+import { ImTarget } from "react-icons/im";
+import { MdDashboard } from "react-icons/md";
+import { MdSettings } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 
 const menuArr = [
-  { name: "Goals", link: "/goals" },
-  { name: "History", link: "/history" },
-  { name: "Social", link: "/social" },
-  { name: "Age Targets", link: "/agetargets" },
-  { name: "Dashboard", link: "/dashboard" },
-  { name: "Settings", link: "/settings" },
-  { name: "Mail", link: "/mail" },
+  { name: "Goals", link: "/goals", icon: <MdAssignmentTurnedIn /> },
+  { name: "History", link: "/history", icon: <MdBookmark /> },
+  { name: "Social", link: "/social", icon: <TiSocialTwitter /> },
+  { name: "Age Targets", link: "/agetargets", icon: <ImTarget /> },
+  { name: "Dashboard", link: "/dashboard", icon: <MdDashboard /> },
+  { name: "Settings", link: "/settings", icon: <MdSettings /> },
+  { name: "Mail", link: "/mail", icon: <MdEmail /> },
 ];
 
 export default function Nav() {
   return (
     <div className="nav">
-      <div className="navwrapper"></div>
+      <ul className="navwrapper">
+        {menuArr.map((x) => {
+          <a href={x.link}>
+            <li className="navbuttons">
+              {x.icon}
+              {x.name}
+            </li>
+          </a>;
+        })}
+      </ul>
     </div>
   );
 }

@@ -1,0 +1,22 @@
+.nav {
+  left: 0;
+  top: 0;
+  width: 20%;
+  min-width: 140px;
+  max-width: 300px;
+  height: 100%;
+  border: yellow 1px solid;
+  display: flex;
+  align-items: center;
+}
+
+.navwrapper {
+  height: 90%;
+  width: 100%;
+  border: red 1px solid;
+}
+
+.navbuttons {
+  width: 100%;
+  background-color: #071017;
+}

@@ -5,8 +5,8 @@ import PlannerList from "./components/PlannerList/PlannerList";
 function App() {
   return (
     <div className="App">
-      <PlannerList />
       <Nav />
+      <PlannerList />
     </div>
   );
 }
