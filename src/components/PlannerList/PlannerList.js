@@ -9,6 +9,14 @@ export default function PlannerList() {
   const [input, setInput] = useState("");
   const [focusPoint, setFocusPoint] = useState(false);
 
+  function setLocal(itemToBeStored) {
+    localStorage.setItem("goalsArray", JSON.stringify(itemToBeStored));
+  }
+
+  function getLocal() {
+    return [...JSON.parse(localStorage.getItem("goalsArray"))];
+  }
+
   function handleChange(e) {
     setInput(e.target.value);
   }
@@ -17,8 +25,7 @@ export default function PlannerList() {
     if (localStorage.getItem("goalsArray") === null) {
       return;
     } else {
-      console.log(...JSON.parse(localStorage.getItem("goalsArray")));
-      let loadGoals = [...JSON.parse(localStorage.getItem("goalsArray"))];
+      let loadGoals = getLocal();
       setGoals(loadGoals);
     }
   }, []);
@@ -29,18 +36,18 @@ export default function PlannerList() {
     }
     let newGoals = [goal, ...goals];
     setGoals(newGoals);
-    localStorage.setItem("goalsArray", JSON.stringify(newGoals));
+    setLocal(newGoals);
   }
 
   function removeGoal(id) {
     let newArr = goals.filter((x) => (x.id !== id ? true : false));
-    localStorage.setItem("goalsArray", JSON.stringify(newArr));
+    setLocal(newArr);
     setGoals(newArr);
   }
 
   function removeAllGoals() {
     setGoals([]);
-    localStorage.setItem("goalsArray", JSON.stringify([]));
+    setLocal([]);
   }
 
   function editGoal(id) {
@@ -57,7 +64,7 @@ export default function PlannerList() {
   function turnOffEditMode(e) {
     e.preventDefault();
     let editedGoalID = goals[0].id;
-    let loadGoals = [...JSON.parse(localStorage.getItem("goalsArray"))];
+    let loadGoals = getLocal();
     let mappedGoals = loadGoals.map((x) => {
       if (x.id === editedGoalID) {
         x.name = input;
@@ -65,10 +72,21 @@ export default function PlannerList() {
       return x;
     });
     setGoals(mappedGoals);
-    localStorage.setItem("goalsArray", JSON.stringify(mappedGoals));
+    setLocal(mappedGoals);
     setEditState(!editState);
     setInput("");
     setFocusPoint(!focusPoint);
+  }
+
+  function markChecked(id, check) {
+    let newGoals = goals.map((goal) => {
+      if (goal.id === id) {
+        goal.checked = check;
+        console.log(check);
+      }
+      return goal;
+    });
+    setLocal(newGoals);
   }
 
   return (
@@ -85,6 +103,7 @@ export default function PlannerList() {
             goal={goal}
             removeGoal={removeGoal}
             editGoal={editGoal}
+            markChecked={markChecked}
             key={goal.id}
           />
         );

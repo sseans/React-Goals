@@ -5,14 +5,15 @@ import { ImCheckboxChecked } from "react-icons/im";
 import { FaEdit } from "react-icons/fa";
 import "./Goal.css";
 
-export default function Goal({ goal, removeGoal, editGoal }) {
-  const [check, setCheck] = useState(false);
+export default function Goal({ goal, removeGoal, editGoal, markChecked }) {
+  const [check, setCheck] = useState(goal.checked);
 
   function findID() {
     removeGoal(goal.id);
   }
 
   function toggleCheck() {
+    markChecked(goal.id, !check);
     setCheck(!check);
   }
 

@@ -21,6 +21,7 @@ export default function PlannerForm(props) {
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       name: input,
+      checked: false,
     });
     setInput("");
   }
