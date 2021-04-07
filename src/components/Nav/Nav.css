@@ -58,6 +58,11 @@
   z-index: 1;
 }
 
+.navbuttons:hover svg {
+  transform: rotate(90deg);
+  transition: all 250ms ease-in-out;
+}
+
 .navbuttons:hover + button {
   background-color: #fff;
 }

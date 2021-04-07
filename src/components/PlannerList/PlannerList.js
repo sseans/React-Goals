@@ -73,7 +73,7 @@ export default function PlannerList() {
 
   return (
     <div className="planner-list">
-      <h1>Set A Goal Today!</h1>
+      <h1>Set Goals</h1>
       <PlannerForm
         onSubmit={addGoal}
         focusPoint={focusPoint}

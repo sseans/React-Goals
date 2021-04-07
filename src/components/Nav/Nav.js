@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Nav.css";
 import { MdAssignmentTurnedIn } from "react-icons/md";
 import { MdBookmark } from "react-icons/md";
@@ -27,7 +28,9 @@ export default function Nav() {
     <div className="nav">
       <div className="navprofile">
         <div className="profileframe">
-          <img src={blankProfileImage} alt="Profile" />
+          <Link to="/">
+            <img src={blankProfileImage} alt="Profile" />
+          </Link>
         </div>
         <p>Welcome back, Sean!</p>
       </div>
@@ -38,12 +41,12 @@ export default function Nav() {
           counter++;
 
           return (
-            <a href={x.link} className="navlinks">
+            <Link to={x.link} className="navlinks" key={idTag}>
               <li className="navbuttons" id={idTag}>
                 {x.icon}
                 <p>{x.name}</p>
               </li>
-            </a>
+            </Link>
           );
         })}
         <div className="navcolorblock"></div>

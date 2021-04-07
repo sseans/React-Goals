@@ -40,7 +40,7 @@ export default function PlannerForm(props) {
         autoFocus
         ref={inputElement}
       />
-      <button className="planner-button">Add+</button>
+      <button className="planner-button">Add</button>
       <RiDeleteBack2Fill onClick={removeButton} />
     </form>
   );
