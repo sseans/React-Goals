@@ -27,11 +27,9 @@ export default function Nav() {
   return (
     <div className="nav">
       <div className="navprofile">
-        <div className="profileframe">
-          <Link to="/">
-            <img src={blankProfileImage} alt="Profile" />
-          </Link>
-        </div>
+        <Link className="profileframe" to="/">
+          <img src={blankProfileImage} alt="Profile" />
+        </Link>
         <p>Welcome back, Sean!</p>
       </div>
       <ul className="navwrapper">

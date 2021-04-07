@@ -1,5 +1,13 @@
 .hero {
+  border: red 1px solid;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .herowrapper {
+  width: 85%;
+  max-width: 1100px;
 }
