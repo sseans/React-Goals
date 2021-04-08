@@ -9,6 +9,7 @@ import { MdDashboard } from "react-icons/md";
 import { MdSettings } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
 import blankProfileImage from "../../Images/blank-profile.png";
+import { motion } from "framer-motion";
 
 const menuArr = [
   { name: "Goals", link: "/goals", icon: <MdAssignmentTurnedIn /> },
@@ -20,12 +21,22 @@ const menuArr = [
   { name: "Mail", link: "/mail", icon: <MdEmail /> },
 ];
 
+const variants = {
+  hidden: { opacity: 0, left: -500 },
+  show: { opacity: 1, left: 0 },
+};
+
 export default function Nav() {
   let counter = 1;
   let idTag;
 
   return (
-    <div className="nav">
+    <motion.div
+      initial="hidden"
+      animate="show"
+      variants={variants}
+      className="nav"
+    >
       <div className="navprofile">
         <Link className="profileframe" to="/">
           <img src={blankProfileImage} alt="Profile" />
@@ -49,6 +60,6 @@ export default function Nav() {
         })}
         <div className="navcolorblock"></div>
       </ul>
-    </div>
+    </motion.div>
   );
 }
