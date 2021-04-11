@@ -13,6 +13,8 @@ body,
   width: 100%;
   height: 100vh;
   box-sizing: inherit;
+  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .App {

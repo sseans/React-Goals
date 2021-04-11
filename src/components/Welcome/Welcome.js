@@ -1,9 +1,20 @@
 import React from "react";
 import "./Welcome.css";
+import { motion } from "framer-motion";
+
+const variants = {
+  hidden: { opacity: 0, translateX: 800 },
+  show: { opacity: 1, translateX: 0 },
+};
 
 export default function Welcome() {
   return (
-    <div className="hero">
+    <motion.div
+      initial="hidden"
+      animate="show"
+      variants={variants}
+      className="hero"
+    >
       <div className="herowrapper">
         <h1>Set New Goals Today.</h1>
         <p>
@@ -12,6 +23,6 @@ export default function Welcome() {
           placerat id rutrum eu, volutpat maximus leo.{" "}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }

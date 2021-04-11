@@ -82,11 +82,13 @@ export default function PlannerList() {
     let newGoals = goals.map((goal) => {
       if (goal.id === id) {
         goal.checked = check;
-        console.log(check);
       }
       return goal;
     });
     setLocal(newGoals);
+
+    let checkedGoals = goals.filter((x) => (x.checked === true ? true : false));
+    localStorage.setItem("goalsHistory", JSON.stringify(checkedGoals));
   }
 
   return (

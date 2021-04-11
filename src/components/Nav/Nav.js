@@ -14,11 +14,11 @@ import { motion } from "framer-motion";
 const menuArr = [
   { name: "Goals", link: "/goals", icon: <MdAssignmentTurnedIn /> },
   { name: "History", link: "/history", icon: <MdBookmark /> },
-  { name: "Social", link: "/social", icon: <TiSocialTwitter /> },
-  { name: "Age Targets", link: "/agetargets", icon: <ImTarget /> },
-  { name: "Dashboard", link: "/dashboard", icon: <MdDashboard /> },
-  { name: "Settings", link: "/settings", icon: <MdSettings /> },
-  { name: "Mail", link: "/mail", icon: <MdEmail /> },
+  // { name: "Social", link: "/social", icon: <TiSocialTwitter /> },
+  // { name: "Age Targets", link: "/agetargets", icon: <ImTarget /> },
+  // { name: "Dashboard", link: "/dashboard", icon: <MdDashboard /> },
+  // { name: "Settings", link: "/settings", icon: <MdSettings /> },
+  // { name: "Mail", link: "/mail", icon: <MdEmail /> },
 ];
 
 const variants = {

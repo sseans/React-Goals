@@ -4,6 +4,12 @@ import { ImCheckboxUnchecked } from "react-icons/im";
 import { ImCheckboxChecked } from "react-icons/im";
 import { FaEdit } from "react-icons/fa";
 import "./Goal.css";
+import { motion } from "framer-motion";
+
+const variants = {
+  hidden: { opacity: 0, translateX: 800 },
+  show: { opacity: 1, translateX: 0 },
+};
 
 export default function Goal({ goal, removeGoal, editGoal, markChecked }) {
   const [check, setCheck] = useState(goal.checked);
@@ -22,7 +28,12 @@ export default function Goal({ goal, removeGoal, editGoal, markChecked }) {
   }
 
   return (
-    <div className="planner-goal">
+    <motion.div
+      initial="hidden"
+      animate="show"
+      variants={variants}
+      className="planner-goal"
+    >
       <div className="goal-name">{goal.name}</div>
       <AiFillDelete className="rubbish" onClick={findID} />
       {check === false ? (
@@ -31,6 +42,6 @@ export default function Goal({ goal, removeGoal, editGoal, markChecked }) {
         <ImCheckboxChecked className="checked" onClick={toggleCheck} />
       )}
       <FaEdit className="edit-button" onClick={edit} />
-    </div>
+    </motion.div>
   );
 }
