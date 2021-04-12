@@ -34,7 +34,13 @@ export default function Goal({ goal, removeGoal, editGoal, markChecked }) {
       variants={variants}
       className="planner-goal"
     >
-      <div className="goal-name">{goal.name}</div>
+      <div
+        {...(goal.checked == true
+          ? 'className="goal-name-checked"'
+          : 'className="goal-name"')}
+      >
+        {goal.name}
+      </div>
       <AiFillDelete className="rubbish" onClick={findID} />
       {check === false ? (
         <ImCheckboxUnchecked className="unchecked" onClick={toggleCheck} />

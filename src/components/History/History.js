@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { AiFillDelete } from "react-icons/ai";
 import "./History.css";
+import HistoryGoal from "./HistoryGoal";
 
 export default function History() {
   const [goalHistory, setGoalHistory] = useState([]);
@@ -14,6 +14,18 @@ export default function History() {
     setGoalHistory(loadedGoals);
   }
 
+  function setHistory(setWith) {
+    localStorage.setItem("goalsHistory", JSON.stringify(setWith));
+  }
+
+  function removeGoal(id) {
+    const removedGoalArray = goalHistory.filter((goal) =>
+      goal.id !== id ? true : false
+    );
+    setGoalHistory(removedGoalArray);
+    setHistory(removedGoalArray);
+  }
+
   return (
     <div className="history">
       <div className="historywrapper">
@@ -25,10 +37,11 @@ export default function History() {
         ) : (
           goalHistory.map((goal) => {
             return (
-              <div key={goal.name} className="historygoal">
-                <p>{goal.name}</p>
-                <AiFillDelete />
-              </div>
+              <HistoryGoal
+                key={goal.name}
+                goal={goal}
+                removeGoal={removeGoal}
+              />
             );
           })
         )}

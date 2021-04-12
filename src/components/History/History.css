@@ -23,7 +23,6 @@
 }
 
 .historygoal {
-  border: yellow 1px solid;
   width: 50%;
   font-size: 1.3rem;
   display: flex;
@@ -37,6 +36,7 @@
   color: #5fb396;
   height: 40px;
   padding: 0 5px;
+  text-decoration: line-through;
 }
 
 .historygoal p {
