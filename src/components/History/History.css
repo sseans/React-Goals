@@ -1,11 +1,52 @@
 .history {
   width: 90%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .historywrapper {
   width: 85%;
+  height: 100%;
   max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.historytitle {
+  font-size: 2.25rem;
+  font-weight: bold;
 }
 
 .historygoal {
+  border: yellow 1px solid;
+  width: 50%;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  margin-top: 5px;
+  border: #5fb396 1px solid;
+  border-radius: 5px;
+  color: #5fb396;
+  height: 40px;
+  padding: 0 5px;
+}
+
+.historygoal p {
+  flex: 90%;
+  color: #ece7dc;
+}
+
+.historygoal svg {
+  display: flex;
+  justify-content: center;
+  flex: 10%;
+  cursor: pointer;
 }
