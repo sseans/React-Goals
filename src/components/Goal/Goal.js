@@ -14,6 +14,8 @@ const variants = {
 export default function Goal({ goal, removeGoal, editGoal, markChecked }) {
   const [check, setCheck] = useState(goal.checked);
 
+  const planner = `goal-name ${goal.checked === true ? "linethrough" : ""}`;
+
   function findID() {
     removeGoal(goal.id);
   }
@@ -34,13 +36,7 @@ export default function Goal({ goal, removeGoal, editGoal, markChecked }) {
       variants={variants}
       className="planner-goal"
     >
-      <div
-        {...(goal.checked == true
-          ? 'className="goal-name-checked"'
-          : 'className="goal-name"')}
-      >
-        {goal.name}
-      </div>
+      <div className={planner}>{goal.name}</div>
       <AiFillDelete className="rubbish" onClick={findID} />
       {check === false ? (
         <ImCheckboxUnchecked className="unchecked" onClick={toggleCheck} />

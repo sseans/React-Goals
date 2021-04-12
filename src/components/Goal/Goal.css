@@ -20,6 +20,10 @@
   font-weight: 700;
 }
 
+.goal-name.linethrough {
+  text-decoration: line-through;
+}
+
 .rubbish {
   margin-right: 3px;
   flex: 5%;

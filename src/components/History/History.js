@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import "./History.css";
 import HistoryGoal from "./HistoryGoal";
+import { motion } from "framer-motion";
+
+const variants = {
+  hidden: { opacity: 0, translateX: 800 },
+  show: { opacity: 1, translateX: 0 },
+};
 
 export default function History() {
   const [goalHistory, setGoalHistory] = useState([]);
@@ -27,7 +33,12 @@ export default function History() {
   }
 
   return (
-    <div className="history">
+    <motion.div
+      initial="hidden"
+      animate="show"
+      variants={variants}
+      className="history"
+    >
       <div className="historywrapper">
         <div className="historytitle">Complete Goals</div>
         {goalHistory.length === 0 ? (
@@ -46,6 +57,6 @@ export default function History() {
           })
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
