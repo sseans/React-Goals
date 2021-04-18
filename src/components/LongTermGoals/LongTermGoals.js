@@ -11,7 +11,10 @@ export default function LongTermGoals() {
           <FaEdit />
         </div>
         <div className="goalcompletion">
-          <div className="goalcompletionbar"></div>
+          <div className="goalcompletionbar">
+            <div className="goalcompletionpercent"></div>
+          </div>
+          <button className="goalcompletionadd"></button>
         </div>
       </div>
     </div>

@@ -4,10 +4,12 @@ import Nav from "./components/Nav/Nav";
 import PlannerList from "./components/PlannerList/PlannerList";
 import Welcome from "./components/Welcome/Welcome";
 import History from "./components/History/History";
+import LongTermGoals from "./components/LongTermGoals/LongTermGoals";
 
 function App() {
   return (
     <div className="App">
+      <LongTermGoals />
       <Router>
         <Nav />
         <Switch>
