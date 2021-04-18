@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import "./PlannerForm.css";
+import { BiAddToQueue } from "react-icons/bi";
 
 export default function PlannerForm(props) {
   const [input, setInput] = useState("");
@@ -41,8 +42,12 @@ export default function PlannerForm(props) {
         autoFocus
         ref={inputElement}
       />
-      <button className="planner-button">Add</button>
-      <RiDeleteBack2Fill onClick={removeButton} />
+      <button className="planner-button">
+        <BiAddToQueue />
+      </button>
+      <div className="deleteall">
+        <RiDeleteBack2Fill onClick={removeButton} />
+      </div>
     </form>
   );
 }
